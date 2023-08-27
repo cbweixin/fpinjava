@@ -56,4 +56,22 @@ public class TransactionalTest {
 
         assertEquals(100, acct3.balance);
     }
+
+    @Test
+    public void testMapInsufficientBalance() {
+
+        Transactional.begin()
+                     .map(txState -> {
+                         acct1.withdraw(2000);
+                         return txState;
+                     })
+                     .map(txState -> {
+                         acct2.deposit(500);
+                         return txState;
+                     })
+                     .commit();
+
+        assertEquals(1000, acct1.balance);
+        assertEquals(0, acct2.balance);
+    }
 }

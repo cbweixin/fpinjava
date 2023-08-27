@@ -48,6 +48,7 @@ public class MOptionalTest {
         assertEquals("Unknown", name);
     }
 
+    @Test
     public void testMapWithNullAddr() {
         String name = new MOptional<>(acct3).map(Account::getAddress)
                                             .map(Address::getCity)
@@ -57,6 +58,20 @@ public class MOptionalTest {
 
     }
 
+    @Test
+    public void testGetCityName() {
+        assertEquals("puqi", acct.getCityName());
+        assertEquals("puqi", acct.getCityNameWithFlatMap());
+    }
 
+    @Test
+    public void testGetCityNameWithNullCity() {
+        assertEquals("Unknown", acct2.getCityName());
+    }
+
+
+    @Test
+    public void testGetCityNameWithNullAddr() {
+    }
 
 }

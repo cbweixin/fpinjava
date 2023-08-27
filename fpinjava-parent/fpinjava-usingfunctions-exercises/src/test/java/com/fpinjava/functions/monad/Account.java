@@ -12,13 +12,13 @@ class Account {
 
     public void withdraw(int amount) {
         this.balance -= amount;
-        if(this.balance < 0){
+        if (this.balance < 0) {
             this.balance += amount;
             throw new RuntimeException("insufficient fund...");
         }
     }
 
-    public void deposit(int amount){
+    public void deposit(int amount) {
         this.balance += amount;
     }
 
@@ -36,8 +36,34 @@ class Account {
         return this;
     }
 
+    public MOptional<City> city() {
+        return new MOptional<>(address).map(Address::getCity);
+    }
 
+    /**
+     * before use `flatMap`, we need call nested Moptional map. not very convenient
+     *
+     * @param acct
+     * @return
+     */
+    public String getCityName() {
+        final MOptional<Account> optAcct = new MOptional<>(this);
+        // nested Moptional, so it is not that convinient
+        final MOptional<MOptional<City>> optOptCity = optAcct.map(account -> account.city());
+        final MOptional<String> optName = optOptCity.map(optCity -> optCity.map(City::getName))
+                                                    .OrElse(null);
+        return optName.OrElse("Unknown");
+    }
+
+    public String getCityNameWithFlatMap() {
+        final MOptional<Account> optAcct = new MOptional<>(this);
+        String cityName = optAcct.flatMap(optacct -> optacct.city())
+                                 .map(City::getName)
+                                 .OrElse("Unknown");
+        return cityName;
+    }
 }
+
 class Address {
 
     public Address() {

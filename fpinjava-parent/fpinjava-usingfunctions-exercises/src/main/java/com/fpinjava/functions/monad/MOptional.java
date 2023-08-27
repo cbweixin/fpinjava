@@ -18,6 +18,14 @@ public class MOptional<T> {
 
     }
 
+    <R> MOptional<R> flatMap(Function<T, MOptional<R>> transform) {
+        if (value != null) {
+            return transform.apply(value);
+        }
+        return new MOptional<>(null);
+
+    }
+
     T OrElse(T defaultValue){
         return value != null ? value : defaultValue;
     }
