@@ -31,6 +31,7 @@ project(':fpinjava-introduction') {
   dependencies {
     compile project(':fpinjava-common')
     testCompile group: 'junit', name: 'junit', version: '4.+'
+
   }
 }
 
@@ -39,6 +40,8 @@ project(':fpinjava-usingfunctions-exercises') {
   dependencies {
     compile project(':fpinjava-common')
     testCompile group: 'junit', name: 'junit', version: '4.+'
+    // https://mvnrepository.com/artifact/org.mockito/mockito-core
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '4.6.0'
   }
 }
 

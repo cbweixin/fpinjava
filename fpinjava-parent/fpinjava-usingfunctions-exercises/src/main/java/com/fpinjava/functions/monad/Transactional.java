@@ -52,6 +52,7 @@ public class Transactional {
             return new Transactional(result);
         } catch (Exception e) {
             // if transaction incidents occured, rollback
+            System.err.println(e.getMessage());
             db.rollback();
             return new Transactional(TxState.ROLLBACK);
         }
