@@ -1,4 +1,4 @@
-import static org.junit.Assert.*;
+package com.fpinjava.common;
 
 public class ListTest {
 

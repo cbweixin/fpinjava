@@ -1,4 +1,7 @@
-package com.fpinjava.io.exercise13_02_;
+package com.fpinjava.io.exercise13_01;
+
+import static com.fpinjava.common.TailCall.ret;
+import static com.fpinjava.common.TailCall.sus;
 
 import com.fpinjava.common.Effect;
 import com.fpinjava.common.Function;
@@ -8,13 +11,9 @@ import com.fpinjava.common.Supplier;
 import com.fpinjava.common.TailCall;
 import com.fpinjava.common.Tuple;
 import com.fpinjava.common.Tuple3;
-
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
-
-import static com.fpinjava.common.TailCall.ret;
-import static com.fpinjava.common.TailCall.sus;
 
 
 public abstract class List<A> {
