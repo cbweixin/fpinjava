@@ -1,5 +1,7 @@
 package com.fpinjava.functions.monad;
 
+import java.util.List;
+
 class Account {
 
     public Account(int balance) {
@@ -8,6 +10,17 @@ class Account {
 
     public int balance;
     public Address address;
+
+    public List<Phone> phones;
+
+    public List<Phone> getPhones() {
+        return phones;
+    }
+
+    public Account setPhones(List<Phone> phones) {
+        this.phones = phones;
+        return this;
+    }
 
 
     public void withdraw(int amount) {
@@ -43,7 +56,7 @@ class Account {
     /**
      * before use `flatMap`, we need call nested Moptional map. not very convenient
      *
-     * @param acct
+     * @param
      * @return
      */
     public String getCityName() {
@@ -105,4 +118,23 @@ class City {
     }
 
     String name;
+}
+
+class Phone {
+
+    public Phone(String phoneNum) {
+        this.phoneNum = phoneNum;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public Phone setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+        return this;
+    }
+
+    String phoneNum;
+
 }
