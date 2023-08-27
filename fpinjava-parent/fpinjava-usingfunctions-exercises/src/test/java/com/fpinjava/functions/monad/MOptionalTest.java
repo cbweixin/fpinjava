@@ -72,6 +72,8 @@ public class MOptionalTest {
 
     @Test
     public void testGetCityNameWithNullAddr() {
+        assertEquals("Unknown", acct3.getCityName());
+        assertEquals("Unknown", acct3.getCityNameWithFlatMap());
     }
 
 }
