@@ -8,67 +8,6 @@ import org.junit.Test;
 
 public class MOptionalTest {
 
-    class Account {
-
-        public Account(Address address) {
-            this.address = address;
-        }
-
-        public Address getAddress() {
-            return address;
-        }
-
-        public Account setAddress(Address address) {
-            this.address = address;
-            return this;
-        }
-
-        Address address;
-
-    }
-
-    class Address {
-
-        public Address() {
-        }
-
-        public Address(City city) {
-            this.city = city;
-        }
-
-        public City getCity() {
-            return city;
-        }
-
-        public Address setCity(City city) {
-            this.city = city;
-            return this;
-        }
-
-        City city;
-
-    }
-
-    class City {
-
-        public City(String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public City() {
-        }
-
-        public City setName(String name) {
-            this.name = name;
-            return this;
-        }
-
-        String name;
-    }
 
     Account acct;
     Account acct2;
